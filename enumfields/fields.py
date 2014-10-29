@@ -58,6 +58,8 @@ class EnumFieldMixin(six.with_metaclass(models.SubfieldBase)):
         kwargs['enum'] = self.enum
         if 'choices' in kwargs:
             del kwargs['choices']
+        if 'default' in kwargs:
+            kwargs['default'] = kwargs['default'].value
         return name, path, args, kwargs
 
 
